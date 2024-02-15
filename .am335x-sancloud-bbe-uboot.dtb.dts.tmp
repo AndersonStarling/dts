@@ -22,6 +22,7 @@
 # 1 "./scripts/dtc/include-prefixes/dt-bindings/clock/am3.h" 1
 # 15 "arch/arm/boot/dts/am33xx.dtsi" 2
 
+
 / {
  compatible = "ti,am33xx";
  interrupt-parent = <&intc>;
@@ -164,7 +165,7 @@
        &pm_sram_data>;
   };
  };
-# 166 "arch/arm/boot/dts/am33xx.dtsi"
+# 167 "arch/arm/boot/dts/am33xx.dtsi"
  ocp: ocp {
   compatible = "simple-bus";
   #address-cells = <1>;
@@ -2762,7 +2763,7 @@
   };
  };
 };
-# 470 "arch/arm/boot/dts/am33xx.dtsi" 2
+# 471 "arch/arm/boot/dts/am33xx.dtsi" 2
 # 1 "arch/arm/boot/dts/am33xx-clocks.dtsi" 1
 
 
@@ -3440,7 +3441,7 @@
   };
  };
 };
-# 470 "arch/arm/boot/dts/am33xx.dtsi" 2
+# 471 "arch/arm/boot/dts/am33xx.dtsi" 2
 # 8 "arch/arm/boot/dts/am335x-sancloud-bbe-uboot.dts" 2
 # 1 "arch/arm/boot/dts/am335x-bone-common.dtsi" 1
 
