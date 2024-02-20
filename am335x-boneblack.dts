@@ -22,10 +22,34 @@
 	    compatible = "user_data";
 	    #address-cells = <1>;
 	    #size-cells = <1>;
-	    reg = <0x44E07000 0x1000>;
+	    reg = <0x54E07000 0x1000>;
+	    interrupts = <100>;
 	    status = "okay";
     };
+
 };
+
+&am33xx_pinmux {
+    pwm_1_pin: pwm_1_pin {
+	    pinctrl-single,pins = <
+	    	AM33XX_PADCONF(AM335X_PIN_GPMC_A2, PIN_OUTPUT, MUX_MODE6)	/* ehrpwm1a */
+	    	AM33XX_PADCONF(AM335X_PIN_GPMC_A3, PIN_OUTPUT, MUX_MODE6)	/* ehrpwm1b */
+	    >;
+    };
+};
+
+&epwmss1
+{
+	status = "okay";
+};
+
+&ehrpwm1 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm_1_pin>;
+	status = "okay";
+};
+
+
 
 &cpu0_opp_table {
 	/*
