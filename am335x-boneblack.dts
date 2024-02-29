@@ -7,6 +7,7 @@
 #include "am33xx.dtsi"
 #include "am335x-bone-common.dtsi"
 #include "am335x-boneblack-common.dtsi"
+#include <dt-bindings/pwm/pwm.h>
 
 / {
 	model = "TI AM335x BeagleBone Black";
@@ -27,7 +28,15 @@
 	    status = "okay";
     };
 
+	user_pwm: led-pwm
+	{
+		compatible = "led-pwm-demo";
+        pwms = <&ehrpwm1 0 5000000 PWM_POLARITY_INVERTED>;
+		pwm-names = "led-pwm";
+	};
+
 };
+
 
 &am33xx_pinmux {
     pwm_1_pin: pwm_1_pin {

@@ -15,6 +15,7 @@ deps_arch/arm/boot/dts/am335x-boneblack.dtb := \
   arch/arm/boot/dts/am335x-boneblack-common.dtsi \
   scripts/dtc/include-prefixes/dt-bindings/display/tda998x.h \
   scripts/dtc/include-prefixes/dt-bindings/interrupt-controller/irq.h \
+  scripts/dtc/include-prefixes/dt-bindings/pwm/pwm.h \
   arch/arm/boot/dts/tps65217.dtsi \
 
 arch/arm/boot/dts/am335x-boneblack.dtb: $(deps_arch/arm/boot/dts/am335x-boneblack.dtb)
