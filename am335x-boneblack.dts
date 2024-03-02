@@ -35,6 +35,11 @@
 		pwm-names = "led-pwm";
 	};
 
+	user_serial1
+	{
+		compatible = "serial-user-demo";
+	};
+
 };
 
 
