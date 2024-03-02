@@ -47,6 +47,16 @@
     };
 };
 
+/* Add support uart 1 pin */
+&am33xx_pinmux {
+    uart1_pin: uart1_pin {
+	    pinctrl-single,pins = <
+	    	AM33XX_PADCONF(AM335X_PIN_UART1_TXD, PIN_OUTPUT_PULLDOWN, MUX_MODE5)	/* uart1.tx */
+	    	AM33XX_PADCONF(AM335X_PIN_UART1_RXD, PIN_INPUT_PULLUP, MUX_MODE5)	/* uart1.rx */
+	    >;
+    };
+};
+
 &epwmss1
 {
 	status = "okay";
@@ -55,6 +65,13 @@
 &ehrpwm1 {
 	pinctrl-names = "default";
 	pinctrl-0 = <&pwm_1_pin>;
+	status = "okay";
+};
+
+&uart1
+{
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart1_pin>;
 	status = "okay";
 };
 
