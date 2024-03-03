@@ -35,11 +35,6 @@
 		pwm-names = "led-pwm";
 	};
 
-	user_serial1
-	{
-		compatible = "serial-user-demo";
-	};
-
 };
 
 
@@ -56,8 +51,8 @@
 &am33xx_pinmux {
     uart1_pin: uart1_pin {
 	    pinctrl-single,pins = <
-	    	AM33XX_PADCONF(AM335X_PIN_UART1_TXD, PIN_OUTPUT_PULLDOWN, MUX_MODE5)	/* uart1.tx */
-	    	AM33XX_PADCONF(AM335X_PIN_UART1_RXD, PIN_INPUT_PULLUP, MUX_MODE5)	/* uart1.rx */
+	    	AM33XX_PADCONF(AM335X_PIN_UART1_TXD, PIN_OUTPUT_PULLDOWN, MUX_MODE0)	/* uart1.tx */
+	    	AM33XX_PADCONF(AM335X_PIN_UART1_RXD, PIN_INPUT_PULLUP, MUX_MODE0)	/* uart1.rx */
 	    >;
     };
 };
@@ -73,6 +68,7 @@
 	status = "okay";
 };
 
+/* enable uart1 pin */
 &uart1
 {
 	pinctrl-names = "default";
@@ -80,7 +76,14 @@
 	status = "okay";
 };
 
-
+/* add support client node */
+&uart1
+{
+	serial-demo
+	{
+	    compatible = "serial-user-demo";	
+	};
+};
 
 &cpu0_opp_table {
 	/*
