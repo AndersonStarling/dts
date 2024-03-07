@@ -85,6 +85,43 @@
 	};
 };
 
+/* Add support I2C1 pin */
+&am33xx_pinmux
+{
+    i2c1_pins: pinmux_i2c1_pins {
+    	pinctrl-single,pins = <
+    		AM33XX_PADCONF(AM335X_PIN_SPI0_D1, PIN_INPUT_PULLUP, MUX_MODE2)	/* uart1_ctsn.i2c2_sda */
+    		AM33XX_PADCONF(AM335X_PIN_SPI0_CS0, PIN_INPUT_PULLUP, MUX_MODE2)	/* uart1_rtsn.i2c2_scl */
+    	>;
+    };
+};
+
+/* Enable I2C1 */
+&i2c1
+{
+	status = "okay";
+	clock-frequency = <100000>;
+    pinctrl-names = "default";
+	pinctrl-0 = <&i2c1_pins>;
+
+    /* I2C Device */
+	lcd@27
+	{
+		compatible = "lcd_16x2";
+		reg = <0x27>;
+	};
+};
+
+// &i2c2
+// {
+// 	/* I2C Device */
+// 	lcd@27
+// 	{
+// 		compatible = "lcd_16x2";
+// 		reg = <0x27>;
+// 	};
+// };
+
 &cpu0_opp_table {
 	/*
 	 * All PG 2.0 silicon may not support 1GHz but some of the early
